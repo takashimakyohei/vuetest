@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p><input type="text" placeholder="TODOを入力しましょう！" v-model="newitemtitle">
+            <button v-on:click="addbutton">add</button></p>
+        
+        <ul>
+            <li v-for="(item,index) in items">
+              <label>
+                <label v-bind:class="{ done: item.ischecked }">
+                <input type="checkbox" v-model="item.ischecked"> {{ item.title }}
+                <button v-on:click="deletebutton(index)">delete</button>
+              </label>
+            </li>
+          </ul>
+            
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="main.js"></script>
+
+</html>
+
+<!-- 
+    テキストボックスの中に値を入れて、addボタンを押したら、
+    値がテキストボックスの外側で表示される。
+    外側で表示された値の横に、deleteボタンを設置する。
+    deleteボタンを押したら、値が消える。
+
+ -->
