@@ -6,7 +6,10 @@ let vm = new Vue({
   },
   methods: {
     addbutton: function () {
+      if (this.newitemtitle === '')
+        return;
       this.items.push({
+      
         title: this.newitemtitle, ischecked: false
       });
       this.newitemtitle = ''

@@ -11,8 +11,9 @@
 
 <body>
     <div id="app">
-        <p><input type="text" placeholder="TODOを入力しましょう！" v-model="newitemtitle">
+        <p><input type="text" placeholder="TODOを入力しましょう！" v-model="newitemtitle"　v-on:keyup.enter="addbutton">
             <button v-on:click="addbutton">add</button></p>
+            
         
         <ul>
             <li v-for="(item,index) in items">
