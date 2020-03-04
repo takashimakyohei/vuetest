@@ -2,34 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <div id="app">
-        <p><input type="text" placeholder="TODOを入力しましょう！" v-model="newitemtitle"　v-on:keyup.enter="addbutton">
-            <button v-on:click="addbutton">add</button></p>
-            
-        
+
+  <div id="app">
+    <div class="container">
+      <div class="flexitem item1">
+        <h1>未着手</h1>
+        <draggable tag="ul" v-bind:options="{group:'ITEMS'}">
+          <li v-for="(item,index) in items" v-bind:key="item.id">
+        </draggable>
+      </div>
+      <div class="flexitem item2">
+        <h1>進行中</h1>
+      </div>
+
+
+      <div class="flexitem item3">
+        <h1>TODOリスト</h1>
+        <p><input type="text" placeholder="TODOを入力しましょう！" v-model="newitemtitle" 　v-on:keyup.enter="addbutton">
+          <button v-on:click="addbutton">add</button></p>
+
         <ul>
-            <li v-for="(item,index) in items">
-              <label>
-                <label v-bind:class="{ done: item.ischecked }">
-                <input type="checkbox" v-model="item.ischecked"> {{ item.title }}
-                <button v-on:click="deletebutton(index)">delete</button>
-              </label>
+          <draggable tag="ul" :options="{group:'ITEMS'}">
+            <li v-for="(item,index) in items" v-bind:key="item.id">
+          </draggable>
+          <label>
+            <label v-bind:class="{ done: item.ischecked }">
+              <input type="checkbox" v-model="item.ischecked"> {{ item.title }}
+              <button v-on:click="deletebutton(index)">delete</button>
+            </label>
             </li>
-          </ul>
-            
+        </ul>
+      </div>
+
+      <div class="flexitem item4">
+        <h1>確認待ち</h1>
+      </div>
+      <div class="flexitem item5">
+        <h1>完了</h1>
+      </div>
     </div>
+  </div>
+  </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
 
 </html>
 
