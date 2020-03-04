@@ -17,6 +17,9 @@
     <div class="container">
       <div class="flexitem item1">
         <h1>未着手</h1>
+        <draggable tag="ul" v-bind:options="{group:'ITEMS'}">
+          <li v-for="(item,index) in items" v-bind:key="item.id">
+        </draggable>
       </div>
       <div class="flexitem item2">
         <h1>進行中</h1>
@@ -29,7 +32,7 @@
           <button v-on:click="addbutton">add</button></p>
 
         <ul>
-          <draggable tag="ul">
+          <draggable tag="ul" :options="{group:'ITEMS'}">
             <li v-for="(item,index) in items" v-bind:key="item.id">
           </draggable>
           <label>

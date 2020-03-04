@@ -8,6 +8,7 @@ let vm = new Vue({
   el: '#app',
   data: {
     items: [],
+    items2:[],
     newitemtitle: '',
     id:0
   },
