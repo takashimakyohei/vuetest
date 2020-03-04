@@ -1,7 +1,47 @@
+h1{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.container{
+    display: flex;
+    height:100%;
+    justify-content: start;
+  }
+  
+  .flexitem{
+    width: 100%;
+  }
+  
+  .item1{
+    background: blueviolet;
+  }
+  
+  .item2{
+    background:lightblue;
+  }
+  
+  .item3{
+    background:lightslategray;
+    text-align: center;
+  }
+  
+  .item4{
+    background:lightgreen;
+  }
+  
+  .item5{
+    background: lightpink;
+  }
+
 .done{
     text-decoration: line-through;
 }
 
 li{
     list-style: none;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid black;
 }
