@@ -1,8 +1,16 @@
+const draggable = window['vuedraggable'];
+
+Vue.component('my-component', {
+  template: '<div>A global component!</div>'
+})
+
 let vm = new Vue({
   el: '#app',
   data: {
     items: [],
-    newitemtitle: ''
+    items2:[],
+    newitemtitle: '',
+    id:0
   },
   methods: {
     addbutton: function () {
@@ -10,7 +18,9 @@ let vm = new Vue({
         return;
       this.items.push({
       
-        title: this.newitemtitle, ischecked: false
+        title: this.newitemtitle, ischecked: false,
+        id:this.id++
+        
       });
       this.newitemtitle = ''
     },
